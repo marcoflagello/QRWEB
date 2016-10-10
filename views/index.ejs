@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' />
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  </head>
+  <body>
+    
+    <% include templates/layout.ejs %>
+
+	<div class="container">
+
+	<div class="row">
+            <div class="col-sm-6 .col-md-4 .col-md-offset-4 ">
+		<h1 class="text-center" name="login-title"> Sign in to your QRWEB</h1>
+			<div class="account-wall">
+						
+                            <form class='form-signin', action='/login', method='POST'>
+					<input type='text', name='username' class='form-control', placeholder='Email',required, autofocus>
+					<input type='password', name='password' class='form-control', placeholder='Password', required>
+					<button class='btn btn-lg btn-primary btn-block', type='submit'> Sign in </button>
+					<span class="clearfix">
+                            </form>
+                            </div>
+				<a href='/signup', class='text-center new-account' >Create an account </a>
+				
+  		
+                              <div id="message">
+                                <% if ( message ) { %>
+                                  <% message.forEach(function (array) { %>
+                                  <p>Message: <%= array.message %> </p>                                      
+                                <% }) %>
+                                <% } %>
+
+                              </div>
+
+
+
+
+                                                
+                </div>                                        
+        </div>                                        
+</div>
+
+
+
+
+
+  </body>
+</html>

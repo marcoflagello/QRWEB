@@ -1,0 +1,31 @@
+{
+  "name": "qrweb4",
+  "version": "0.0.8",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  
+  "main": "./bin/www.js",
+  
+  "dependencies": {
+    "bcrypt-nodejs": "*",
+    "body-parser": "~1.15.1",
+    "connect-flash": "*",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.4.1",
+    "express": "~4.13.4",
+    "express-session": "^1.14.1",
+    "mongodb": "^2.2.9",
+    "mongoose": "^4.6.1",
+    "morgan": "~1.7.0",
+    "multer": "^1.2.0",
+    "node-print": "0.0.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "qr-image": "^3.1.0",
+    "serve-favicon": "~2.3.0",
+    "tinymce": "^4.4.3"
+  }
+}

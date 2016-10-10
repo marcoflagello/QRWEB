@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>modifica</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' />
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script type="text/javascript">
+  tinymce.init({
+    selector: '#descrizione'
+  });
+  </script>
+<style>
+div.img {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 25%;
+}
+
+div.img:hover {
+    border: 1px solid #777;
+}
+
+div.img img {
+    width: 100%;
+    height: 100px;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+</style>
+  </head>
+  <body>
+    
+    <% include templates/layout.ejs %>
+<div class="container">
+
+    
+    
+
+    <h3>Modifica il luogo</h3>
+
+    <form action="/update" method="post">
+
+      <div class="row">    
+        <div class="col-sm-8"> 
+        <div class="input">
+            <label for="id"></label>
+            <input type="hidden" id="id" name="id" value="<%= item._id %>">
+        </div>
+        <div class="input">
+            <label for="name">Luogo</label>
+            <input type="text" id="name" name="name" value="<%= item.name %>">
+        </div>
+        
+        <div class="input">
+            <label for="descrizione">Descrizione</label>
+            <input type="textarea" id="descrizione" name="descrizione" value="<%= item.descrizione %>">
+        </div>
+       
+         
+        
+        
+     <% for(var i=0; i < item.image.length; i++) { %>
+        <div class="img">
+
+        
+            <a target="_blank" href="<%= item.image[i] %>">
+           
+                <img src="<%= item.image[i] %>" name="image" alt="<%= item.image[i] %>" >
+                <input type="hidden" id="image" name="image" value="<%= item.image[i] %>">
+            
+            </a>
+        
+        <div class="desc"><a id=<%= item._id %> href="/delete_img?foto=<%= item.image[i] %>&id=<%= item._id %>&type='img'"><li>cancella</li></a></div>
+        
+      </div>
+     <% } %>
+         
+        <br>
+      
+     <% if (item.video) { %>
+        <% for(var j=0; j < item.video.length; j++) { %>
+        <div class="img">
+        <a target="_blank" href="<%= item.video[j] %>">
+        <video width=100% controls>
+         <source src=<%= item.video[j] %> type="video/mp4">
+         <source src=<%= item.video[j] %> type="video/ogg">
+          Your browser does not support HTML5 video.
+        </video>
+        <div class="desc"><a id=<%= item._id %> href="/delete_img?foto=<%= item.video[j] %>&id=<%= item._id %>&type='video'"><li>cancella</li></a></div>
+        
+      </div>
+        <% } %>
+        <% } %>
+         
+        <br> 
+
+
+
+
+
+
+
+</div>
+ 
+    <div class="col-sm-4">
+
+    
+        <button type="submit">SALVA</button>
+   
+  </form>
+
+    
+    <br><br><br>
+    <div>Aggiungi nuove immagini:</div>
+    <form action="/insert_img?id=<%= item._id %>" method="POST" enctype="multipart/form-data" >
+    <input type="file" multiple="multiple" accept="image/*" name="image" value="Upload"/><button type="submit">Aggiungi</button>
+    </form>
+    
+    <br><br><br>
+    <div>Aggiungi nuovi video:</div>
+    <form action="/insert_img?id=<%= item._id %>" method="POST" enctype="multipart/form-data" >
+    <input type="file" multiple="multiple" accept="video/*" name="image" value="Uploadv"/><button type="submit">Aggiungi</button>
+    </form>
+    
+    <br><br><br>
+    <div>Cancella Luogo</div>
+    <div>
+     <a id=<%= item._id %> href="/delete?id=<%= item._id %>"><input type="submit" class="button" onclick="return confirm('Sei sicuro di voler cancellare questo luogo?');" value="Cancella Luogo"></a>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>

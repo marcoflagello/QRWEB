@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+    <% include templates/layout.ejs %>
+   
+    
+    <p>Welcome to <%= title %></p>
+
+    <h3>Cancella</h3>
+    <form action="/delete" method="post">
+        <div class="input">
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id">
+        </div>
+     
+        <button type="submit">DELETE</button>
+    </form>
+
+
+
+  </body>
+</html>

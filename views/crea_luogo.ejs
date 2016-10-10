@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' />
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    
+    <script type="text/javascript">
+  tinymce.init({
+    selector: '#tinymce'
+    // id="tinymce" da aggiungere a textarea
+  
+  
+ });
+  </script>
+  </head>
+  <body>
+    
+    <% include templates/layout.ejs %>
+   
+ <div class="container">  
+ 
+
+      <form action="/insert" method="POST" enctype="multipart/form-data" >
+       <div class="row">    
+        <div class="col-sm-8"> 
+        Inserire in nome del luogo:
+      <input type="text" placeholder="name" name="name"><br>
+            <br> 
+            <br> 
+        Inserire la descrizione:
+      <textarea type="file" id="tinymce" placeholder="descrizione" name="descrizione"></textarea><br>
+        <br>Seleziona un'immagine da caricare:
+            <input type="file" multiple="multiple" accept="image/*" name="image" value="Upload"/><br/>
+        <br>Seleziona un video da caricare:
+            <input type="file" multiple="multiple" accept="video/*" name="image" value="Uploadv"/><br/> 
+   
+            <input type="hidden" name="qr" value="qr_"><br>
+            <br> 
+            <br> 
+        </div>
+    <div class="col-sm-4">
+            <input type="submit" value="Upload">  
+            </div>
+    </div> 
+        </form>
+ </div>   
+
+  </body>
+</html>

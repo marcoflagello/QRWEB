@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>prova</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' />
+  </head>
+  <body>
+    
+    <% include templates/layout.ejs %>
+<div class="col-sm-6">  
+    
+ 
+       
+<ul>
+
+<% items.forEach(function (array) { %>
+    <li>  
+        <section class="get">
+
+       
+        
+        <div >Nome:<a id=<%= array._id %> href="/luogo?id=<%= array._id %>"><h2><%= array.name %></h2></a>
+
+        </div>
+        <br>
+        
+    </li>                                   
+<% }) %>
+</ul>
+
+</div>
+  </body>
+</html>
