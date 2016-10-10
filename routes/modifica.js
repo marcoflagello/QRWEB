@@ -6,7 +6,7 @@ var assert = require('assert');
 
 
 
-var url = 'mongodb://localhost:27017/test';
+var url = 'mongodb://mongodb_connection_string/userdata';
 
 // Simple route middleware to ensure user is authenticated.
 function ensureAuthenticated(req, res, next) {

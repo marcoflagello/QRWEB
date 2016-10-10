@@ -5,7 +5,7 @@ var objectId = require('mongodb').ObjectID;
 var assert = require('assert');
 
 
-var url = 'mongodb://localhost:27017/test';
+var url = 'mongodb://mongodb_connection_string/userdata';
 
 
 router.get('/', function(req, res, next) {
